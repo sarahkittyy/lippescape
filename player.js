@@ -27,30 +27,36 @@ class Player
 	
 	collides(credit)
 	{
-		if(this.y + this.w > credit.y
-			&& this.y < credit.y + credit.w)
+		let shave = 20;
+		let x = this.x + shave;
+		let w = this.w - 2*shave;
+		let y = this.y + shave;
+		let h = this.h - 2*shave;
+		
+		if(y + h > credit.y
+			&& y < credit.y + credit.w)
 		{
-			if(this.x + this.w > credit.x 
-				&& this.x < credit.x)
+			if(x + w > credit.x 
+				&& x < credit.x)
 			{
 				return true;
 			}
-			else if(this.x < credit.x + credit.w
-				&& this.x > credit.x)
+			else if(x < credit.x + credit.w
+				&& x > credit.x)
 			{
 				return true;
 			}
 		}
-		else if(this.x < credit.x + credit.w
-			&& this.x + this.w > credit.x)
+		else if(x < credit.x + credit.w
+			&& x + w > credit.x)
 		{
-			if(this.y < credit.y + credit.h
-				&& this.y + this.h > credit.y)
+			if(y < credit.y + credit.h
+				&& y + h > credit.y)
 			{
 				return true;
 			}
-			else if(this.y + this.h > credit.y
-				&& this.y < credit.y + credit.h)
+			else if(y + h > credit.y
+				&& y < credit.y + credit.h)
 			{
 				return true;
 			}
