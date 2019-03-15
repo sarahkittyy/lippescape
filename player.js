@@ -75,15 +75,32 @@ class Player
 	update()
 	{
 		let accel = 0.5;
-		if(keyIsDown(LEFT_ARROW))
+		let touched = (touches.length != 0);
+		if(touched)
+		{
+			let touch = touches[0];
+			let dx, dy;
+			dx = touch.x - this.x;
+			dy = touch.y - this.y;
+			let dist = Math.hypot(dx, dy);
+			if(dist != 0)
+			{
+				let xc = dx/dist * accel;
+				let yc = dy/dist * accel;
+				
+				this.xv += xc;
+				this.yv += yc;
+			}
+		}
+		if(keyIsDown(LEFT_ARROW) && !touched)
 		{
 			this.xv -= accel;
 		}
-		else if(keyIsDown(RIGHT_ARROW))
+		else if(keyIsDown(RIGHT_ARROW) && !touched)
 		{
 			this.xv += accel;
 		}
-		else
+		else if (!touched)
 		{
 			if(this.xv > accel/2)
 			{
@@ -98,15 +115,15 @@ class Player
 				this.xv = 0;
 			}
 		}
-		if(keyIsDown(UP_ARROW))
+		if(keyIsDown(UP_ARROW) && !touched)
 		{
 			this.yv -= accel;	
 		}
-		else if(keyIsDown(DOWN_ARROW))
+		else if(keyIsDown(DOWN_ARROW) && !touched) 
 		{
 			this.yv += accel;
 		}
-		else
+		else if(!touched)
 		{
 			if(this.yv > accel/2)
 			{

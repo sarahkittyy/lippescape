@@ -3,14 +3,14 @@ html, body {
 }
   
 body {
-	margin: auto;
+	margin: 0;
+	padding: 0px;
+	width: 100%;
 	display: flex;
 
 	justify-content: center;
 
 	align-items: center;
-	
-	
 }
 
 canvas {

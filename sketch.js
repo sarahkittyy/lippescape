@@ -22,9 +22,15 @@ function preload()
 	lipps = []
 }
 
+function windowResized()
+{
+	resizeCanvas(windowWidth - 100, windowHeight - 100);
+	canvas.position(0, 0);
+}
+
 function setup()
 {
-	createCanvas(500, 500);
+	var canvas = createCanvas(windowWidth, windowHeight);
 	player.init();
 	credit = new Credit(credit_img, 48);
 }
