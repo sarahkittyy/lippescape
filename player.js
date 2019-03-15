@@ -20,8 +20,8 @@ class Player
 	
 	die()
 	{
-		this.x = 200;
-		this.y = 200;
+		this.x = width / 2 - this.w / 2;
+		this.y = height / 2 - this.h / 2;
 		this.credits = 0;
 	}
 	
@@ -85,8 +85,8 @@ class Player
 			let dist = Math.hypot(dx, dy);
 			if(dist != 0)
 			{
-				let xc = dx/dist * accel;
-				let yc = dy/dist * accel;
+				let xc = (dx/dist) * accel;
+				let yc = (dy/dist) * accel;
 				
 				this.xv += xc;
 				this.yv += yc;

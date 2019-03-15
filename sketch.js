@@ -2,6 +2,8 @@ let player;
 let lipps;
 let lipp_img;
 
+let canvas;
+
 let credit;
 let credit_img;
 
@@ -19,18 +21,22 @@ function preload()
 	player = new Player(200, 200, 125);
 	credit_img = loadImage('cc.png');
 	lipp_img = loadImage('lipp.png');
-	lipps = []
+	lipps = [];
 }
+
+let windowborder = 50;
 
 function windowResized()
 {
-	resizeCanvas(windowWidth - 100, windowHeight - 100);
-	canvas.position(0, 0);
+	resizeCanvas(windowWidth - windowborder, windowHeight - windowborder);
+	player.die();
+	credit.scatter();
+	lipps = [];
 }
 
 function setup()
 {
-	var canvas = createCanvas(windowWidth, windowHeight);
+	canvas = createCanvas(windowWidth - windowborder, windowHeight - windowborder);
 	player.init();
 	credit = new Credit(credit_img, 48);
 }
