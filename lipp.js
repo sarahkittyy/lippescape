@@ -1,3 +1,4 @@
+//uwu
 class Lipp
 {
 	constructor(img, s)
